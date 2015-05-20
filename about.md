@@ -4,12 +4,9 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
+Born and raised in Brooklyn, NY. Spent the last year, 2014, hiking The Appalachian Trail and entering the world of programming.
+Over 2000 miles later, one journey was coming to an end and another beginning. December lead to an application and acceptance at Hack Reactor - One of the most prestigious programming bootcamps in the world.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[jackmcdevitt4@gmail.com](mailto:jackmcdevitt4@gmail.com)
