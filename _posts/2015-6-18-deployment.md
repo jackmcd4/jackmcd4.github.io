@@ -89,7 +89,6 @@ your app ready to go in no time!
 
   3. Open terminal and run the following command which will install azure's CLI and allow you
   to easily deploy straight from terminal:
-
 ```javascript
 npm install -g azure-cli
 ```
