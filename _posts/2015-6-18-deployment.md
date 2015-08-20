@@ -34,23 +34,23 @@ comes down to personal preference.
 
   Grunt's getting-started tutorial:
      
-    <http://gruntjs.com/installing-grunt>
+  <http://gruntjs.com/installing-grunt>
 
   It is pretty easy to get started with grunt if you don't want to read through it... 
 
   Four options:
   
 ```javascript
-    npm install -g grunt //globally install grunt
-    npm install -g grunt-cli //globally install grunt command line interface (CLI) version
-    npm install grunt --save-dev //Save to local repository
-    npm install grunt-cli --save-dev //Save to local repository, command line
+npm install -g grunt //globally install grunt
+npm install -g grunt-cli //globally install grunt command line interface (CLI) version
+npm install grunt --save-dev //Save to local repository
+npm install grunt-cli --save-dev //Save to local repository, command line
 ```
  
   Their website also has a search bar built-in for plugins.
   Check out concat, css-min, uglify, and the many others available:
 
-    <http://gruntjs.com/plugins>
+  <http://gruntjs.com/plugins>
 
   Choose a database wisely. 
   If you end up needing to change over from one database to another, while common,
@@ -72,7 +72,7 @@ comes down to personal preference.
     
   <http://docs.sequelizejs.com/en/latest/>
     
-    <http://mongoosejs.com/>
+  <http://mongoosejs.com/>
 
 If you do decide to go with Microsoft Azure, you can quite easily set up your app for deployment 
 through the command line with Azure's CLI. Follow these steps to get your account set up and
@@ -89,73 +89,73 @@ your app ready to go in no time!
 
   3. Open terminal and run the following command which will install azure's CLI and allow you
   to easily deploy straight from terminal:
-  ```javascript
-      npm install -g azure-cli
-  ```
+```javascript
+npm install -g azure-cli
+```
   4. Free account or not, you need to download an authentication string that azure will open
   in your browser...The following commands will set up your account
-  ```javascript
-      azure account download //opens a new page in your browser and downloads file
-      azure account import <file> //once you have typed the first three words you can simply drag the file
-      //into the command line
-      azure account list //you should see something like this:
-      
-      info:    Executing command account list
-      data:    Name        Id                                    Tenant Id  Current
-      data:    ----------  ------------------------------------  ---------  -------
-      data:    Free Trial  <SHA CODE GIVEN BY AZURE HERE>        undefined  true   
-      info:    account list command OK
+```javascript
+azure account download //opens a new page in your browser and downloads file
+azure account import <file> //once you have typed the first three words you can simply drag the file
+//into the command line
+azure account list //you should see something like this:
 
-      azure account set <SHA> //paste your SHA from the Id column above (Secure Hash Algorithm)
-  ```
+info:    Executing command account list
+data:    Name        Id                                    Tenant Id  Current
+data:    ----------  ------------------------------------  ---------  -------
+data:    Free Trial  <SHA CODE GIVEN BY AZURE HERE>        undefined  true   
+info:    account list command OK
+
+azure account set <SHA> //paste your SHA from the Id column above (Secure Hash Algorithm)
+```
   5. Now that your account is set up, you can create a sitename where all the info from your app will
   be stored. 
-  ```javascript
-      //if you haven't been inside your repository, make sure you go there before the next line of code
+```javascript
+//if you haven't been inside your repository, make sure you go there before the next line of code
 
-      azure site create <NAME OF APP/WEBSITE> --git
-      /*
-        This sets up a remote for you repository under the name 'azure'
-        This means you can magically add information to your application by writing 'git push azure master'!
-        You can set this up in your grunt file so that anytime you deploy it automaticly runs that line
-        of code in the command line
-      */
-  ```
+azure site create <NAME OF APP/WEBSITE> --git
+/*
+  This sets up a remote for you repository under the name 'azure'
+  This means you can magically add information to your application by writing 'git push azure master'!
+  You can set this up in your grunt file so that anytime you deploy it automaticly runs that line
+  of code in the command line
+*/
+```
   6. Set up environments for your app to be able to use on deployment such as node, mongolab, etc.
-  
-      azure site appsetting add <key>=<value>
-    
+```javascript      
+azure site appsetting add <key>=<value>
+```    
   7. A note on above, if you are using a database helper like mongolab, make sure this is where you save 
   the SHA they (mongolab) give you, NOT in your source code. It is a huge security risk for someone to 
   have access to that code and thus your database. 
-  ```javascript
-      //Src-Code
-      mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/myAppName';
+```javascript
+//Src-Code
+mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/myAppName';
 
-      //Terminal
-      azure site appsetting add MONGOLAB_URI=<MONGO_LAB SHA>
-      //Azure ensures the safety of that hash
-  ```
+//Terminal
+azure site appsetting add MONGOLAB_URI=<MONGO_LAB SHA>
+//Azure ensures the safety of that hash
+```
   8. Lastly decide how you want to scale your app (which can be costly), azure has a great article about
   this that you can find below:
 
-    <https://azure.microsoft.com/en-us/documentation/articles/web-sites-scale/>
+  <https://azure.microsoft.com/en-us/documentation/articles/web-sites-scale/>
       
   9. Once you've figured out your scale run these lines of code, and you're deployed!
-  ```javascript
-    azure site scale mode <MODE-TYPE> <SITE-NAME>
-    
-    //deploy with either grunt:
-    grunt deploy --prod 
-    //or simply:
-    git push azure master
-  ```
+```javascript
+azure site scale mode <MODE-TYPE> <SITE-NAME>
+
+//deploy with either grunt:
+grunt deploy --prod 
+//or simply:
+git push azure master
+```
   10. Now that you're deployed, of course you want to see what it looks like...
 
   Type this line:
-  ```javascript
-    azure site browse 
-  ```
+```javascript
+azure site browse 
+```
   Or go to: http://www.YOURSITENAME.azure.microsoft.com
 
 
