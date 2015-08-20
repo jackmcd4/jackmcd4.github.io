@@ -89,11 +89,14 @@ of the day there are other places to deploy from, such as Heroku or Amazon Web S
 
 * Open terminal and run the following command which will install azure's CLI and allow you
 to easily deploy straight from terminal:
+
 ```javascript
 npm install -g azure-cli
 ```
+
 * Free account or not, you need to download an authentication string that azure will open
 in your browser...The following commands will set up your account
+
 ```javascript
 azure account download //opens a new page in your browser and downloads file
 azure account import <file> //once you have typed the first three words you can simply drag the file
@@ -108,8 +111,10 @@ info:    account list command OK
 
 azure account set <SHA> //paste your SHA from the Id column above (Secure Hash Algorithm)
 ```
+
 * Now that your account is set up, you can create a sitename where all the info from your app will
 be stored. 
+
 ```javascript
 //if you haven't been inside your repository, make sure you go there before the next line of code
 
@@ -121,13 +126,17 @@ You can set this up in your grunt file so that anytime you deploy it automaticly
 of code in the command line
 */
 ```
+
 * Set up environments for your app to be able to use on deployment such as node, mongolab, etc.
+
 ```javascript      
 azure site appsetting add <key>=<value>
 ```  
+
 * A note on above, if you are using a database helper like mongolab, make sure this is where you save 
 the SHA they (mongolab) give you, NOT in your source code. It is a huge security risk for someone to 
 have access to that code and thus your database. 
+
 ```javascript
 //Src-Code
 mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/myAppName';
@@ -136,12 +145,14 @@ mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/myAppName';
 azure site appsetting add MONGOLAB_URI=<MONGO_LAB SHA>
 //Azure ensures the safety of that hash
 ```
+
 * Lastly decide how you want to scale your app (which can be costly), azure has a great article about
 this that you can find below:
 
 <https://azure.microsoft.com/en-us/documentation/articles/web-sites-scale/>
 
 * Once you've figured out your scale run these lines of code, and you're deployed!
+
 ```javascript
 azure site scale mode <MODE-TYPE> <SITE-NAME>
 
@@ -150,12 +161,15 @@ grunt deploy --prod
 //or simply:
 git push azure master
 ```
+
 * Now that you're deployed, of course you want to see what it looks like...
 
 Type this line:
+
 ```javascript
 azure site browse 
 ```
+
 Or go to: http://www.YOURSITENAME.azure.microsoft.com
 
 
