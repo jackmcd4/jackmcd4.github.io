@@ -93,7 +93,6 @@ your app ready to go in no time!
 ```javascript
 npm install -g azure-cli
 ```
-
   4. Free account or not, you need to download an authentication string that azure will open
   in your browser...The following commands will set up your account
 
@@ -111,7 +110,6 @@ info:    account list command OK
 
 azure account set <SHA> //paste your SHA from the Id column above (Secure Hash Algorithm)
 ```
-
   5. Now that your account is set up, you can create a sitename where all the info from your app will
   be stored. 
 
@@ -126,13 +124,11 @@ azure site create <NAME OF APP/WEBSITE> --git
   of code in the command line
 */
 ```
-
   6. Set up environments for your app to be able to use on deployment such as node, mongolab, etc.
 
 ```javascript      
 azure site appsetting add <key>=<value>
 ```  
-
   7. A note on above, if you are using a database helper like mongolab, make sure this is where you save 
   the SHA they (mongolab) give you, NOT in your source code. It is a huge security risk for someone to 
   have access to that code and thus your database. 
@@ -145,12 +141,11 @@ mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/myAppName';
 azure site appsetting add MONGOLAB_URI=<MONGO_LAB SHA>
 //Azure ensures the safety of that hash
 ```
-
   8. Lastly decide how you want to scale your app (which can be costly), azure has a great article about
   this that you can find below:
 
   <https://azure.microsoft.com/en-us/documentation/articles/web-sites-scale/>
-      
+  
   9. Once you've figured out your scale run these lines of code, and you're deployed!
 
 ```javascript
@@ -161,7 +156,6 @@ grunt deploy --prod
 //or simply:
 git push azure master
 ```
-
   10. Now that you're deployed, of course you want to see what it looks like...
 
   Type this line:
